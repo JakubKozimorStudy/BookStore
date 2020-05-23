@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Store {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shop_id")
     private Long shopId;
     @ManyToOne(cascade = CascadeType.ALL)

@@ -2,8 +2,6 @@ package store.store;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,8 +30,9 @@ public class StoreApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         SceneManager.setStage(primaryStage);
-        SceneManager.addScene("firstPage", "fxml/first-page.fxml");
-        SceneManager.renderScene("firstPage");
+        SceneManager.addScene("shopsPanel", "fxml/shops-panel.fxml");
+        SceneManager.addScene("mainPage", "fxml/main-page.fxml");
+        SceneManager.renderScene("shopsPanel");
     }
 
     @Override

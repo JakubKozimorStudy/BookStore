@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.store.contrtollers.MainController">
+   <children>
+      <Button layoutX="594.0" layoutY="335.0" mnemonicParsing="false" onAction="#deleteFromBill" prefHeight="70.0" prefWidth="163.0" text="Usuń">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TableView fx:id="booksTable" layoutX="14.0" layoutY="95.0" prefHeight="196.0" prefWidth="389.0">
+        <columns>
+          <TableColumn fx:id="titleBooksTable" prefWidth="107.0" text="Tytuł" />
+          <TableColumn fx:id="authorBooksTable" prefWidth="93.0" text="Autor" />
+            <TableColumn fx:id="categoryBooksTable" prefWidth="114.0" text="Kategoria" />
+            <TableColumn fx:id="priceBooksTable" prefWidth="74.0" text="Cena" />
+        </columns>
+      </TableView>
+      <Label layoutX="121.0" layoutY="24.0" prefHeight="54.0" prefWidth="205.0" text="Książki" textAlignment="CENTER">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="414.0" layoutY="25.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="105.0" text="Książki">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="541.0" layoutY="25.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="105.0" text="Klienci">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <TableView fx:id="clientsTable" layoutX="14.0" layoutY="384.0" prefHeight="196.0" prefWidth="389.0">
+        <columns>
+          <TableColumn fx:id="firstNameClientTable" prefWidth="67.0" text="Imie" />
+          <TableColumn fx:id="lastNameClientTable" prefWidth="82.0" text="Nazwisko" />
+            <TableColumn fx:id="emailClientTable" prefWidth="152.0" text="Email" />
+            <TableColumn fx:id="phoneNumberClientTable" prefWidth="87.0" text="Numer tel." />
+        </columns>
+      </TableView>
+      <Button layoutX="420.0" layoutY="335.0" mnemonicParsing="false" onAction="#addToBill" prefHeight="70.0" prefWidth="163.0" text="Dodaj">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="420.0" layoutY="504.0" mnemonicParsing="false" onAction="#acceptPayment" prefHeight="70.0" prefWidth="336.0" text="Przyjmij płatność">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <TableView fx:id="billTable" layoutX="420.0" layoutY="182.0" prefHeight="141.0" prefWidth="336.0">
+        <columns>
+          <TableColumn fx:id="titleBillTable" prefWidth="115.0" text="Tutuł" />
+          <TableColumn fx:id="authorBillTable" prefWidth="140.0" text="Autor" />
+            <TableColumn fx:id="priceBillTable" text="Cena" />
+        </columns>
+      </TableView>
+      <Label layoutX="121.0" layoutY="300.0" prefHeight="54.0" prefWidth="205.0" text="Klienci" textAlignment="CENTER">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="482.0" layoutY="112.0" prefHeight="70.0" prefWidth="212.0" text="Rachunek" textAlignment="CENTER">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="665.0" layoutY="25.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="105.0" text="Transakcje">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="489.0" layoutY="436.0" prefHeight="35.0" prefWidth="125.0" text="Do zapłaty:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="sum" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="626.0" layoutY="436.0" prefHeight="35.0" prefWidth="40.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="669.0" layoutY="436.0" text="zł">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

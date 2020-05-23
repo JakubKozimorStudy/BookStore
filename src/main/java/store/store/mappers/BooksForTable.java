@@ -1,26 +1,19 @@
-package store.store.entity;
+package store.store.mappers;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "books")
-public class Book {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
+public class BooksForTable {
     private Long bookId;
-    @Column(name = "title")
     private String title;
-    @Column(name = "author")
     private String author;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_id")
-    private Category category;
-    @Column(name = "price")
+    private String name;
     private Integer price;
 
-    public Book() {
+    public BooksForTable(Long bookId, String title, String author, String name, Integer price) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.name = name;
+        this.price = price;
     }
 
     public Long getBookId() {
@@ -47,12 +40,12 @@ public class Book {
         this.author = author;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getName() {
+        return name;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getPrice() {
@@ -65,11 +58,12 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "BooksForTable{" +
                 "bookId=" + bookId +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", category=" + category +
+                ", name='" + name + '\'' +
+                ", price=" + price +
                 '}';
     }
 }
