@@ -14,7 +14,7 @@ public class Book {
     private String title;
     @Column(name = "author")
     private String author;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "category_id")
     private Category category;
     @Column(name = "price")

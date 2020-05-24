@@ -101,6 +101,16 @@ public class MainController {
     }
 
     @FXML
+    void booksButton(ActionEvent event) {
+        SceneManager.renderScene("bookPage");
+    }
+
+    @FXML
+    void clientsButton(ActionEvent event) {
+        SceneManager.renderScene("clientsPage");
+    }
+
+    @FXML
     void initialize() {
         clientService = (ClientServiceImpl) StoreApplication.getSpringContext().getBean("clientServiceImpl");
         bookService = (BookServiceImpl) StoreApplication.getSpringContext().getBean("bookServiceImpl");

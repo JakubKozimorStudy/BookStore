@@ -18,7 +18,7 @@ public class Client {
     private String email;
     @Column(name = "phone_number")
     private Integer phoneNumber;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "adress_id")
     private Address addressId;
 

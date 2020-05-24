@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.store.contrtollers.ClientsController">
+   <children>
+      <TableView fx:id="clientsTable" layoutX="38.0" layoutY="84.0" prefHeight="468.0" prefWidth="542.0">
+        <columns>
+          <TableColumn fx:id="firstNameClientsTable" prefWidth="61.0" text="Imie" />
+          <TableColumn fx:id="lastNameClientsTable" prefWidth="66.0" text="Nazwisko" />
+            <TableColumn fx:id="phoneNumberClientsTable" prefWidth="98.0" text="Numer telefonu" />
+            <TableColumn fx:id="emailClientsTable" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="streetClientsTable" prefWidth="75.0" text="Ulica i nr" />
+            <TableColumn fx:id="cityClientsTable" prefWidth="76.0" text="Miasto" />
+            <TableColumn fx:id="zipCodeClientsTable" prefWidth="90.0" text="Kod pocztowy" />
+        </columns>
+      </TableView>
+      <Label layoutX="348.0" layoutY="14.0" prefHeight="53.0" prefWidth="105.0" text="Klienci">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="620.0" layoutY="407.0" text="Kod pocztowy">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="650.0" layoutY="341.0" text="Miasto">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="654.0" layoutY="213.0" text="Email">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="638.0" layoutY="92.0" text="Nazwisko">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="658.0" layoutY="28.0" text="Imie">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="613.0" layoutY="152.0" text="Numer telefonu">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="638.0" layoutY="278.0" prefHeight="27.0" prefWidth="76.0" text="Ulica i nr">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="streetInput" layoutX="607.0" layoutY="305.0" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="phoneNumberInput" layoutX="606.0" layoutY="179.0" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="emailInput" layoutX="607.0" layoutY="240.0" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="lastNameInput" layoutX="606.0" layoutY="119.0" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="firstNameInput" layoutX="606.0" layoutY="57.0" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="cityInput" layoutX="607.0" layoutY="368.0" prefHeight="25.0" prefWidth="143.0" />
+      <TextField fx:id="zipCodeInput" layoutX="604.0" layoutY="434.0" prefHeight="25.0" prefWidth="143.0" />
+      <Button layoutX="604.0" layoutY="481.0" mnemonicParsing="false" onAction="#addClientButton" prefHeight="27.0" prefWidth="154.0" text="Dodaj">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="604.0" layoutY="535.0" mnemonicParsing="false" onAction="#backButton" prefHeight="51.0" prefWidth="154.0" text="Wróć">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

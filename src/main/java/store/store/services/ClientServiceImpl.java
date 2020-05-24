@@ -20,4 +20,8 @@ public class ClientServiceImpl {
     public List<Client> getAllClients() {
         return clientRepository.findAll();
     }
+
+    public void addClient(Client newClient) {
+        clientRepository.save(newClient);
+    }
 }

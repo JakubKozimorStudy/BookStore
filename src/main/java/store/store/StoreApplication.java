@@ -30,9 +30,12 @@ public class StoreApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         SceneManager.setStage(primaryStage);
-        SceneManager.addScene("shopsPanel", "fxml/shops-panel.fxml");
+        SceneManager.addScene("shopsPanel", "fxml/shops-page.fxml");
         SceneManager.addScene("mainPage", "fxml/main-page.fxml");
-        SceneManager.addScene("transactionPage", "fxml/transactions-panel.fxml");
+        SceneManager.addScene("transactionPage", "fxml/transactions-page.fxml");
+        SceneManager.addScene("clientsPage", "fxml/clients-page.fxml");
+        SceneManager.addScene("addShopPage", "fxml/add-shop-page.fxml");
+        SceneManager.addScene("bookPage", "fxml/books-page.fxml");
         SceneManager.renderScene("shopsPanel");
     }
 

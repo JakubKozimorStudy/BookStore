@@ -41,6 +41,10 @@ public class ShopsController {
         }
     }
 
+    @FXML
+    void addNewShopButton(ActionEvent event) {
+        SceneManager.renderScene("addShopPage");
+    }
 
     @FXML
     void initialize() {

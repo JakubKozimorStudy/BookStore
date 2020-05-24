@@ -20,4 +20,8 @@ public class BookServiceImpl {
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
+
+    public void addBook(Book newBook) {
+        bookRepository.save(newBook);
+    }
 }

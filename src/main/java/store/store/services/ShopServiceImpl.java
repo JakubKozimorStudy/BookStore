@@ -20,4 +20,8 @@ public class ShopServiceImpl {
     public List<Store> getAllShops() {
         return storeRepository.findAll();
     }
+
+    public void addNewStore(Store store) {
+        storeRepository.save(store);
+    }
 }

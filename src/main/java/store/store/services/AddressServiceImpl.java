@@ -21,4 +21,8 @@ public class AddressServiceImpl {
     public List<Address> getAllAddresses() {
         return addressRepository.findAll();
     }
+
+    public void addNewAddress(Address address) {
+        addressRepository.save(address);
+    }
 }

@@ -27,12 +27,12 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="414.0" layoutY="25.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="105.0" text="Książki">
+      <Button layoutX="414.0" layoutY="25.0" mnemonicParsing="false" onAction="#booksButton" prefHeight="70.0" prefWidth="105.0" text="Książki">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="541.0" layoutY="25.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="105.0" text="Klienci">
+      <Button layoutX="541.0" layoutY="25.0" mnemonicParsing="false" onAction="#clientsButton" prefHeight="70.0" prefWidth="105.0" text="Klienci">
          <font>
             <Font size="17.0" />
          </font>
