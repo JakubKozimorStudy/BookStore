@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import store.store.SceneManager;
 import store.store.StoreApplication;
 import store.store.entity.Book;
 import store.store.entity.Client;
@@ -94,34 +95,9 @@ public class MainController {
         }
     }
 
-    private void refreshBillSum() {
-        int billSum = billList.stream()
-                .map(Book::getPrice)
-                .mapToInt(Integer::intValue)
-                .sum();
-        sum.setText(String.valueOf(billSum));
-    }
-
-    private void refreshBillTable() {
-        this.observableListBillBooks = FXCollections.observableArrayList();
-        billTable.getColumns().clear();
-        billTable.setItems(getObservableListBillBooks());
-        billTable.getColumns().addAll(titleBillTable, authorBillTable, priceBillTable);
-    }
-
-    public ObservableList<BooksForTable> getObservableListAllBooks() {
-        this.observableListAllBooks.addAll(booksForTableMapper.getBooksForTable());
-        return this.observableListAllBooks;
-    }
-
-    public ObservableList<Book> getObservableListBillBooks() {
-        this.observableListBillBooks.addAll(billList);
-        return this.observableListBillBooks;
-    }
-
-    public ObservableList<Client> getObservableListAllClients() {
-        this.observableListAllClients.addAll(clientService.getAllClients());
-        return this.observableListAllClients;
+    @FXML
+    void transactionButton(ActionEvent event) {
+        SceneManager.renderScene("transactionPage");
     }
 
     @FXML
@@ -155,5 +131,34 @@ public class MainController {
         billTable.getColumns().clear();
         billTable.setItems(getObservableListBillBooks());
         billTable.getColumns().addAll(titleBillTable, authorBillTable, priceBillTable);
+    }
+    private void refreshBillSum() {
+        int billSum = billList.stream()
+                .map(Book::getPrice)
+                .mapToInt(Integer::intValue)
+                .sum();
+        sum.setText(String.valueOf(billSum));
+    }
+
+    private void refreshBillTable() {
+        this.observableListBillBooks = FXCollections.observableArrayList();
+        billTable.getColumns().clear();
+        billTable.setItems(getObservableListBillBooks());
+        billTable.getColumns().addAll(titleBillTable, authorBillTable, priceBillTable);
+    }
+
+    public ObservableList<BooksForTable> getObservableListAllBooks() {
+        this.observableListAllBooks.addAll(booksForTableMapper.getBooksForTable());
+        return this.observableListAllBooks;
+    }
+
+    public ObservableList<Book> getObservableListBillBooks() {
+        this.observableListBillBooks.addAll(billList);
+        return this.observableListBillBooks;
+    }
+
+    public ObservableList<Client> getObservableListAllClients() {
+        this.observableListAllClients.addAll(clientService.getAllClients());
+        return this.observableListAllClients;
     }
 }

@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="456.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.store.contrtollers.ShopsController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.store.contrtollers.ShopsController">
    <children>
-      <TableView fx:id="shopTable" layoutX="75.0" layoutY="114.0" prefHeight="291.0" prefWidth="338.0">
+      <TableView fx:id="shopTable" layoutX="72.0" layoutY="147.0" prefHeight="409.0" prefWidth="373.0">
         <columns>
-          <TableColumn fx:id="nameShopTable" prefWidth="110.0" text="Nazwa" />
-            <TableColumn fx:id="cityShopTable" prefWidth="104.0" text="Miasto" />
-            <TableColumn fx:id="streetShopTable" prefWidth="123.0" text="Ulica" />
+          <TableColumn fx:id="nameShopTable" prefWidth="125.0" text="Nazwa" />
+            <TableColumn fx:id="cityShopTable" prefWidth="130.0" text="Miasto" />
+            <TableColumn fx:id="streetShopTable" prefWidth="117.0" text="Ulica" />
         </columns>
       </TableView>
-      <Button layoutX="483.0" layoutY="229.0" mnemonicParsing="false" onAction="#goInButton" prefHeight="77.0" prefWidth="180.0" text="Przejdź">
+      <Button layoutX="554.0" layoutY="300.0" mnemonicParsing="false" onAction="#goInButton" prefHeight="77.0" prefWidth="180.0" text="Przejdź">
          <font>
             <Font size="36.0" />
          </font>
@@ -26,7 +26,7 @@
             <Font size="64.0" />
          </font>
       </Label>
-      <Label fx:id="warningLabel" layoutX="495.0" layoutY="161.0" prefHeight="35.0" prefWidth="156.0">
+      <Label fx:id="warningLabel" layoutX="566.0" layoutY="206.0" prefHeight="35.0" prefWidth="156.0">
          <font>
             <Font size="24.0" />
          </font>

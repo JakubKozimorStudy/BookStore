@@ -70,6 +70,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", category=" + category +
+                ", price=" + price +
                 '}';
     }
 }

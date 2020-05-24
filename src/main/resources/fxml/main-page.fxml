@@ -72,7 +72,7 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="665.0" layoutY="25.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="105.0" text="Transakcje">
+      <Button layoutX="665.0" layoutY="25.0" mnemonicParsing="false" onAction="#transactionButton" prefHeight="70.0" prefWidth="105.0" text="Transakcje">
          <font>
             <Font size="17.0" />
          </font>

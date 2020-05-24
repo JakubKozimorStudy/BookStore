@@ -32,6 +32,7 @@ public class StoreApplication extends Application {
         SceneManager.setStage(primaryStage);
         SceneManager.addScene("shopsPanel", "fxml/shops-panel.fxml");
         SceneManager.addScene("mainPage", "fxml/main-page.fxml");
+        SceneManager.addScene("transactionPage", "fxml/transactions-panel.fxml");
         SceneManager.renderScene("shopsPanel");
     }
 

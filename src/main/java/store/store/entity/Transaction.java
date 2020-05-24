@@ -11,13 +11,13 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "transaction_id")
     private Long transactionId;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "client_id")
     private Client client;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "shop_id")
     private Store store;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "book_id")
     private Book book;
     @Column(name = "transaction_date")
@@ -30,10 +30,6 @@ public class Transaction {
 
     public Long getTransactionId() {
         return transactionId;
-    }
-
-    public void setTransactionId(Long transactionId) {
-        this.transactionId = transactionId;
     }
 
     public Client getClient() {
