@@ -30,4 +30,16 @@ public class TransactionForTableMapper {
                 .collect(Collectors.toList());
     }
 
+    public List<TransactionForTable> getMonthTransactionsForTable() {
+        return transactionService.getByMonth()
+                .stream()
+                .map(transaction ->
+                        new TransactionForTable(transaction.getClient().getLastName(),
+                                transaction.getStore().getShopName(),
+                                transaction.getBook().getTitle(),
+                                transaction.getDate(),
+                                transaction.getPrice()))
+                .collect(Collectors.toList());
+    }
+
 }

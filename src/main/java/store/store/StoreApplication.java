@@ -36,6 +36,8 @@ public class StoreApplication extends Application {
         SceneManager.addScene("clientsPage", "fxml/clients-page.fxml");
         SceneManager.addScene("addShopPage", "fxml/add-shop-page.fxml");
         SceneManager.addScene("bookPage", "fxml/books-page.fxml");
+        SceneManager.addScene("byMonthTransaction", "fxml/month-transactions-page.fxml");
+        SceneManager.addScene("mostPopularBooks", "fxml/most-popular-books.fxml");
         SceneManager.renderScene("shopsPanel");
     }
 

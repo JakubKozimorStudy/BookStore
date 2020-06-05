@@ -13,6 +13,7 @@ import store.store.repository.TransactionRepository;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TransactionServiceImpl {
@@ -43,5 +44,12 @@ public class TransactionServiceImpl {
                 transactionRepository.save(newTransaction);
             });
         });
+    }
+
+    public List<Transaction> getByMonth() {
+        return transactionRepository.findAll()
+                .stream()
+                .filter(transaction -> transaction.getDate().getMonth().equals(LocalDate.now().getMonth()))
+                .collect(Collectors.toList());
     }
 }

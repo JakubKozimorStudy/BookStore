@@ -23,4 +23,11 @@ public class BooksForTableMapper {
                         new BooksForTable(book.getBookId(), book.getTitle(), book.getAuthor(), book.getCategory().getCategoryName(), book.getPrice()))
                 .collect(Collectors.toList());
     }
+
+    public List<BooksForTable> getMostPopularBooks() {
+        return bookService.getMostPopularBooks().stream()
+                .map(book ->
+                        new BooksForTable(book.getBookId(), book.getTitle(), book.getAuthor(), book.getCategory().getCategoryName(), book.getPrice()))
+                .collect(Collectors.toList());
+    }
 }

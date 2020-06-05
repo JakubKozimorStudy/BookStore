@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.store.contrtollers.MostPopularBooksController">
+   <children>
+      <TableView fx:id="booksTable" layoutX="138.0" layoutY="209.0" prefHeight="273.0" prefWidth="526.0">
+        <columns>
+          <TableColumn fx:id="titleBooksTable" prefWidth="154.0" text="Tytuł" />
+          <TableColumn fx:id="authorBooksTable" prefWidth="82.0" text="Autor" />
+            <TableColumn fx:id="categoryBooksTable" prefWidth="141.0" text="Kategoria" />
+            <TableColumn fx:id="priceBooksTable" prefWidth="148.0" text="Cena" />
+        </columns>
+      </TableView>
+      <Label layoutX="163.0" layoutY="68.0" prefHeight="70.0" prefWidth="476.0" text="Najchętniej kupowane" textAlignment="CENTER">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="639.0" layoutY="514.0" mnemonicParsing="false" onAction="#backButton" prefHeight="42.0" prefWidth="110.0" text="Wróć">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

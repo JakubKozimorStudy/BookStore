@@ -9,14 +9,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import store.store.SceneManager;
 import store.store.StoreApplication;
-import store.store.mappers.ShopForTable;
-import store.store.mappers.ShopForTableMapper;
 import store.store.mappers.TransactionForTable;
 import store.store.mappers.TransactionForTableMapper;
 
 import java.time.LocalDate;
 
-public class TransactionsController {
+public class MonthTransactionsController {
 
     @FXML
     private TableView<TransactionForTable> transactionTable;
@@ -37,18 +35,9 @@ public class TransactionsController {
 
     @FXML
     void backButton(ActionEvent event) {
-        SceneManager.renderScene("mainPage");
+        SceneManager.renderScene("transactionPage");
     }
 
-    @FXML
-    void byMonth(ActionEvent event) {
-        SceneManager.renderScene("byMonthTransaction");
-    }
-
-    @FXML
-    void mostPopularButton(ActionEvent event) {
-        SceneManager.renderScene("mostPopularBooks");
-    }
     @FXML
     void initialize() {
         transactionForTableMapper = (TransactionForTableMapper) StoreApplication.getSpringContext().getBean("transactionForTableMapper");
@@ -65,7 +54,7 @@ public class TransactionsController {
     }
 
     private ObservableList<TransactionForTable> getObservableListAllTransactions() {
-        this.observableListAllTransactions.addAll(transactionForTableMapper.getTransactionsForTable());
+        this.observableListAllTransactions.addAll(transactionForTableMapper.getMonthTransactionsForTable());
         return this.observableListAllTransactions;
     }
 

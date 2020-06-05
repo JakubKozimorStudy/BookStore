@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.store.contrtollers.TransactionsController">
    <children>
-      <TableView fx:id="transactionTable" layoutX="108.0" layoutY="138.0" prefHeight="402.0" prefWidth="584.0">
+      <TableView fx:id="transactionTable" layoutX="108.0" layoutY="222.0" prefHeight="302.0" prefWidth="584.0">
         <columns>
           <TableColumn fx:id="clientTransactionTable" prefWidth="112.0" text="Klient" />
             <TableColumn fx:id="shopTransactionTable" prefWidth="111.0" text="Sklep" />
@@ -24,6 +24,16 @@
          </font>
       </Label>
       <Button layoutX="637.0" layoutY="40.0" mnemonicParsing="false" onAction="#backButton" prefHeight="42.0" prefWidth="110.0" text="Wróć">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#byMonth" prefHeight="51.0" prefWidth="158.0" text="Miesięczne">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#mostPopularButton" prefHeight="93.0" prefWidth="158.0" text="Najchętniej kupowane" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>
