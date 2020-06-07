@@ -1,0 +1,12 @@
+@relation ksiazki
+
+@attribute category {akcja,historyczne,przygdowe,komedie}
+@attribute author {J.K.Rowling,Tolkien,Henryk_Sienkiewicz}
+@attribute next{Harry Potter, Władca Pierścieni, Krzyżacy}
+
+@data
+akcja,J.K.Rowling, Harry Potter
+akcja, Tolkien, Władca Pierścieni
+przygdowe, Tolkien, Harry Potter
+przygdowe, Henryk_Sienkiewicz, Krzyżacy
+historyczne, Henryk_Sienkiewicz, Krzyżacy

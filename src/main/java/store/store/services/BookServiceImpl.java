@@ -1,12 +1,23 @@
 package store.store.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import store.store.entity.Book;
+import store.store.podstawy.BasicTools;
 import store.store.repository.BookRepository;
 import store.store.repository.TransactionRepository;
+import weka.associations.Apriori;
+import weka.associations.AssociationRule;
+import weka.associations.AssociationRules;
+import weka.associations.Item;
+import weka.core.Instances;
+import weka.core.Utils;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,4 +53,5 @@ public class BookServiceImpl {
                 )
                 .collect(Collectors.toList());
     }
+
 }

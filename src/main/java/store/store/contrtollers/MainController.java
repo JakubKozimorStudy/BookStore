@@ -14,13 +14,18 @@ import store.store.entity.Book;
 import store.store.entity.Client;
 import store.store.mappers.BooksForTable;
 import store.store.mappers.BooksForTableMapper;
+import store.store.podstawy.BasicTools;
 import store.store.services.BookServiceImpl;
 import store.store.services.ClientServiceImpl;
 import store.store.services.TransactionServiceImpl;
+import weka.associations.Apriori;
+import weka.associations.AssociationRule;
+import weka.associations.AssociationRules;
+import weka.associations.Item;
+import weka.core.Instances;
+import weka.core.Utils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 public class MainController {
@@ -55,6 +60,10 @@ public class MainController {
 
     @FXML
     private Label sum;
+    @FXML
+    private Label nextBook;
+
+    StringBuilder recommendedBook = new StringBuilder();
 
     private ClientServiceImpl clientService;
     private BooksForTableMapper booksForTableMapper;
@@ -67,7 +76,7 @@ public class MainController {
     List<Book> billList = new ArrayList<>();
 
     @FXML
-    void addToBill(ActionEvent event) {
+    void addToBill(ActionEvent event) throws Exception {
         if (booksTable.getSelectionModel().getSelectedItem() != null) {
             Optional<Book> bookOptional = bookService.getAllBooks().stream()
                     .filter(book -> book.getBookId().equals(booksTable.getSelectionModel().getSelectedItem().getBookId()))
@@ -76,6 +85,7 @@ public class MainController {
         }
         refreshBillTable();
         refreshBillSum();
+        regulyAsocjacyjne();
     }
 
     @FXML
@@ -109,7 +119,81 @@ public class MainController {
     void clientsButton(ActionEvent event) {
         SceneManager.renderScene("clientsPage");
     }
+    public void regulyAsocjacyjne()
+            throws Exception
+    {
+        Instances data = BasicTools.loadData("./src/main/java/store/store/podstawy/data/ksiazki.arff");
+        data.setClassIndex(data.numAttributes() - 1);
 
+        //Opcje liczenia regul asocjacyjnych
+        //-N ->Liczba regul do policzenia (standardowo: 10)
+        //-C ->Minmalna ufnosc reguly (standardowo: 0.9).
+        String[] options = Utils.splitOptions("-N 5 -C 0.6");
+        Apriori apriori = new Apriori();
+        apriori.setOptions(options);
+        apriori.buildAssociations(data); //Generowanie regul asocjacyjnych
+
+        System.out.println("Liczba regul=" + apriori.getNumRules());
+
+
+        //===== POBRANIE INFORMACJI O REGULACH ========
+
+        AssociationRules rules = apriori.getAssociationRules();
+        List<AssociationRule> ruleList  = rules.getRules();
+
+        for (int i=0; i<ruleList.size(); i++)
+        {
+            AssociationRule rule = ruleList.get(i); //Pobranie pojedynczej reguly
+
+
+            //Pobranie opisu poprzednika reguly
+            Collection<Item> poprzednik = rule.getPremise();
+            Iterator<Item> iteratorPoprzednik = poprzednik.iterator();
+            String poprzednikText = new String();
+            while (iteratorPoprzednik.hasNext())
+            {
+                poprzednikText = poprzednikText + "("+iteratorPoprzednik.next().toString()+")";
+                if (iteratorPoprzednik.hasNext()) poprzednikText = poprzednikText +"&";
+            }
+
+
+            //Pobranie opisu nastepnika reguly
+            Collection<Item> nastepnik = rule.getConsequence();
+            Iterator<Item> iteratorNastepnik = nastepnik.iterator();
+            String nastepnikText = new String();
+            while (iteratorNastepnik.hasNext())
+            {
+                nastepnikText = nastepnikText + "("+iteratorNastepnik.next().toString()+")";
+                if (iteratorNastepnik.hasNext()) nastepnikText = nastepnikText +"&";
+            }
+
+
+            //Pobranie wsparcie i obliczenia ufnosci
+            int wsparciePoprzednika = rule.getPremiseSupport();
+            int wsparcieCalosci = rule.getTotalSupport();
+            double ufnosc = (double)wsparcieCalosci/wsparciePoprzednika;
+
+            recommendedBook.append(poprzednikText);
+            recommendedBook.append("=>");
+            recommendedBook.append(nastepnikText);
+            recommendedBook.append(", ");
+            recommendedBook.append("Wsparcie:");
+            recommendedBook.append(wsparcieCalosci);
+            recommendedBook.append(", ");
+            recommendedBook.append("Ufnosc:");
+            recommendedBook.append(ufnosc);
+            recommendedBook.append("\n");
+            System.out.print(poprzednikText+"=>"+nastepnikText+", ");
+            System.out.print("Wsparcie:"+wsparcieCalosci+", ");
+            System.out.println("Ufnosc:"+ufnosc);
+
+        }
+
+        nextBook.setText(recommendedBook.toString());
+
+        //To jest niezbyt czytelne, ale wiarygodne
+        //System.out.println(apriori.toString()); //Wypisanie informacji o regulach
+    }
     @FXML
     void initialize() {
         clientService = (ClientServiceImpl) StoreApplication.getSpringContext().getBean("clientServiceImpl");
